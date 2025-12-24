@@ -1,1 +1,3 @@
 rootProject.name = 'deliverus-poc'
+
+include 'doxy', 'web'

@@ -1,0 +1,34 @@
+import org.gradle.internal.os.OperatingSystem
+
+def npmCommand = OperatingSystem.current().isWindows() ? 'npm.cmd' : 'npm'
+
+def npmInstall = tasks.register('npmInstall', Exec) {
+    workingDir project.projectDir
+    commandLine npmCommand, 'install'
+    inputs.file('package.json')
+    if (project.file('package-lock.json').exists()) {
+        inputs.file('package-lock.json')
+    }
+    outputs.dir('node_modules')
+}
+
+def npmBuild = tasks.register('npmBuild', Exec) {
+    dependsOn npmInstall
+    workingDir project.projectDir
+    commandLine npmCommand, 'run', 'build'
+    inputs.dir('src')
+    inputs.files('index.html', 'tsconfig.json', 'tsconfig.app.json', 'tsconfig.node.json', 'vite.config.ts', 'package.json')
+    outputs.dir('dist')
+}
+
+tasks.register('buildWeb') {
+    dependsOn npmBuild
+}
+
+tasks.register('build') {
+    dependsOn npmBuild
+}
+
+tasks.register('clean') {
+    delete 'dist'
+}

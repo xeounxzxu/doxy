@@ -1,11 +1,11 @@
-package com.deliverus.poc
+package com.kreature.doxy
 
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.runApplication
 
 @SpringBootApplication
-class DeliverusPocApplication
+class DoxyApplication
 
 fun main(args: Array<String>) {
-    runApplication<DeliverusPocApplication>(*args)
+    runApplication<DoxyApplication>(*args)
 }
