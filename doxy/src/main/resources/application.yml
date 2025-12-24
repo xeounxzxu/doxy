@@ -1,3 +1,15 @@
 spring:
   application:
     name: doxy
+  datasource:
+    url: ${DOXY_DB_URL:jdbc:mysql://localhost:3306/doxy?useSSL=false&characterEncoding=UTF-8&serverTimezone=UTC}
+    username: ${DOXY_DB_USERNAME:doxy}
+    password: ${DOXY_DB_PASSWORD:doxy}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    open-in-view: false
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect

@@ -1,0 +1,10 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Docker Compose Up" type="ShConfigurationType" factoryName="Shell Script">
+    <option name="INTERPRETER_PATH" value="/bin/bash" />
+    <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/docker" />
+    <option name="SCRIPT_TEXT" value="docker compose up -d" />
+    <option name="EXECUTE_IN_TERMINAL" value="true" />
+    <option name="TRIGGER_TYPE" value="MANUAL" />
+    <method v="2" />
+  </configuration>
+</component>
