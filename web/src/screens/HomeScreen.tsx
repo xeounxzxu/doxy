@@ -20,8 +20,10 @@ function HomeScreen({ onSearchRequest }: HomeScreenProps) {
           <span>〈</span>
         </button>
         <div className="header-location" role="button" aria-label="지역 선택">
-          <strong>다낭</strong>
-          <span>현재 위치</span>
+          {/*<strong>다낭</strong>*/}
+          {/*<span>현재 위치</span>*/}
+            <strong></strong>
+            <span></span>
         </div>
         <button className="icon-button" aria-label="장바구니">
           🛍️
