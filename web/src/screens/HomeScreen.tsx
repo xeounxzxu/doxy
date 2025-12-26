@@ -1,6 +1,18 @@
+import { KeyboardEvent } from 'react';
 import { categories, heroSlides, promotions, quickServices } from '../data/home';
 
-function HomeScreen() {
+interface HomeScreenProps {
+  onSearchRequest: () => void;
+}
+
+function HomeScreen({ onSearchRequest }: HomeScreenProps) {
+  const handleSearchKeyDown = (event: KeyboardEvent<HTMLDivElement>) => {
+    if (event.key === 'Enter' || event.key === ' ') {
+      event.preventDefault();
+      onSearchRequest();
+    }
+  };
+
   return (
     <div className="screen home-screen">
       <header className="home-header">
@@ -33,9 +45,9 @@ function HomeScreen() {
         ))}
       </section>
 
-      <div className="search-bar" role="search">
+      <div className="search-bar" role="button" tabIndex={0} onClick={onSearchRequest} onKeyDown={handleSearchKeyDown}>
         <span className="search-icon">🔍</span>
-        <input placeholder="맛집, 배달 메뉴, 상품 검색" aria-label="검색" />
+        <input placeholder="맛집, 배달 메뉴, 상품 검색" aria-label="검색" readOnly />
         <span className="hash-tag">#김밥</span>
       </div>
 

@@ -2,9 +2,10 @@ import { myInfoPrimary, myInfoSecondary } from '../data/myInfo';
 
 interface MyInfoScreenProps {
   onNavigatePlaceholder: (label: string) => void;
+  onLoginRequest: () => void;
 }
 
-function MyInfoScreen({ onNavigatePlaceholder }: MyInfoScreenProps) {
+function MyInfoScreen({ onNavigatePlaceholder, onLoginRequest }: MyInfoScreenProps) {
   const handleClick = (label: string) => () => onNavigatePlaceholder(label);
 
   return (
@@ -15,7 +16,7 @@ function MyInfoScreen({ onNavigatePlaceholder }: MyInfoScreenProps) {
         </button>
         <div>
           <p className="myinfo-login-text">로그인/회원가입</p>
-          <button className="link-button" type="button" onClick={handleClick('로그인/회원가입')}>
+          <button className="link-button" type="button" onClick={onLoginRequest}>
             로그인 해주세요
           </button>
         </div>
